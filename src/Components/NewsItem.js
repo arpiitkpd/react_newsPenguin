@@ -2,10 +2,11 @@ import React from 'react'
 
 const NewsItem =(props)=> {
 
+    
     let {title, description,imageUrl, newsUrl ,date, source} = props;
     return (
     <>
-        <div className="card"  >
+        <div className="card" style={{backgroundColor:props.mode==="light"?'white':'#6d718e'}} >
        
         <span className="position-absolute top-0  translate-middle badge rounded-pill bg-danger" style={{left:'13%'}}>
         <span >{source}</span></span>
@@ -14,7 +15,7 @@ const NewsItem =(props)=> {
             <div className="card-body" style={{display:'grid'}}>
               <h5 className="card-title">{title}...</h5>
               <p className="card-text">{description}...</p>
-              <p className="card-text"><small style={{fontSize:"12px"}} className="text-muted">On {new Date(date).toGMTString()}</small></p>
+              <p className="card-text" style={{color:"black"}}><small style={{fontSize:"12px"}} className="text-muted">On {new Date(date).toGMTString()}</small></p>
               <a href={newsUrl}  style={{background: "#000000c4", color:'white'}} rel="noreferrer" target="_blank" className="btn btn-sm ">Read more</a>
             </div>
         </div>

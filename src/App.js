@@ -22,29 +22,43 @@ function App() {
   const setprogress=(progress)=>{
     setProgress(progress)
   }
+  const [mode, setmode] = useState("light")
+  const toogle=()=>{
+    if(mode==='dark'){
+      setmode("light")
+      document.body.style.background="white"
+    
+      
+    }
+    else{
+      setmode("dark")
+      document.body.style.background="#20395b"
 
+  }
+  }
  
     return (
     <div>
       <Router> 
-        <Navbar/>
+        <Navbar  mode={mode} toogle={toogle}/>
       <LoadingBar
         color='#f11946'
         progress={progress}
+        mode={mode} toogle={toogle}
       />
 
        
         <Routes>
 
           
-          <Route exact path="/" element={ <News apiKey={apiKey}  setProgress={setprogress} key="general" pageSize={8} country='in' category='general'/>}/>
-          <Route exact path="/general" element={ <News apiKey={apiKey} setProgress={setprogress} key="general" pageSize={8} country='in' category='general'/>}/>
-          <Route exact path="/business" element={ <News apiKey={apiKey} setProgress={setprogress} key="business" pageSize={8} country='in' category='business'/>}/>
-          <Route exact path="/sports" element={ <News apiKey={apiKey} setProgress={setprogress} key="sports" pageSize={8} country='in' category='sports'/>}/>
-          <Route exact path="/science" element={ <News apiKey={apiKey} setProgress={setprogress} key="science" pageSize={8} country='in' category='science'/>}/>
-          <Route exact path="/entertainment" element={ <News apiKey={apiKey} setProgress={setprogress} key="entertainment" pageSize={8} country='in' category='entertainment'/>}/>
-          <Route exact path="/technology" element={ <News apiKey={apiKey} setProgress={setprogress} key="technology" pageSize={8} country='in' category='technology'/>}/>
-          <Route exact path="/health" element={ <News apiKey={apiKey} setProgress={setprogress} key="health" pageSize={8} country='in' category='health'/>}/>
+          <Route exact path="/" element={ <News apiKey={apiKey}   mode={mode} toogle={toogle}  setProgress={setprogress} key="general" pageSize={8} country='in' category='general'/>}/>
+          <Route exact path="/general" element={ <News apiKey={apiKey}  mode={mode} toogle={toogle} setProgress={setprogress} key="general" pageSize={8} country='in' category='general'/>}/>
+          <Route exact path="/business" element={ <News apiKey={apiKey}  mode={mode} toogle={toogle} setProgress={setprogress} key="business" pageSize={8} country='in' category='business'/>}/>
+          <Route exact path="/sports" element={ <News apiKey={apiKey}  mode={mode} toogle={toogle} setProgress={setprogress} key="sports" pageSize={8} country='in' category='sports'/>}/>
+          <Route exact path="/science" element={ <News apiKey={apiKey}  mode={mode} toogle={toogle} setProgress={setprogress} key="science" pageSize={8} country='in' category='science'/>}/>
+          <Route exact path="/entertainment" element={ <News apiKey={apiKey}  mode={mode} toogle={toogle} setProgress={setprogress} key="entertainment" pageSize={8} country='in' category='entertainment'/>}/>
+          <Route exact path="/technology" element={ <News apiKey={apiKey}   mode={mode} toogle={toogle}setProgress={setprogress} key="technology" pageSize={8} country='in' category='technology'/>}/>
+          <Route exact path="/health" element={ <News apiKey={apiKey}   mode={mode} toogle={toogle}setProgress={setprogress} key="health" pageSize={8} country='in' category='health'/>}/>
 
         </Routes>
       </Router> 

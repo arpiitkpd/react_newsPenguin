@@ -46,11 +46,12 @@ const News=(props)=> {
     setTotalResults(parsedata.totalResults)  
   }
 
+    
 
     return (
       <>
       
-      <div className="container text-center  my-4">
+      <div className="container text-center  my-4" style={{color:props.mode==="light"?'black':'white'}}>
         <div className="text-center"><h1 style={{margin:'78px 0px 0px'}}>New$Penguin</h1><br /> 
         <span style={{ fontSize:"28px"}}>Top {captialize(props.category)}  Headlines</span> 
         </div>
